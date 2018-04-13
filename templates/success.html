@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>email validation</title>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+        
+	</head>
+	<body>
+		<div id="wrapper">
+            <h1>Welcome, you've been successfully {{successMessage}}, {{first_name}}</h1>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+              {% for message in messages %}
+                <p id="green">{{message}}</p>
+              {% endfor %}
+            {% endif %}
+          {% endwith %}
+
+          <form action="/logout">
+            <input type="submit" name="logout" id = "logout" value="Log out">
+          </form>
+
+        </div><!--end of wrapper-->
+	</body>
+</html>
